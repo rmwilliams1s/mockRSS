@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
-with open(os.path.join(BASE_DIR, 'secrets.json')) as secrets_file:
+with open(os.path.join(BASE_DIR, 'rachelsrss/secret.json')) as secrets_file:
     secrets = json.load(secrets_file)
 
 

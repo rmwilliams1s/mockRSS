@@ -10,5 +10,9 @@ class User(models.Model):
 
 
 class RSS(models.Model):
-    url = models.CharField(max_length=100)
+    url = models.URLField()
+    # title = models.CharField(max_length=100)
+    # date = models.DateTimeField()
+    # description = models.CharField(max_length=500)
+    # image = models.URLField(blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)

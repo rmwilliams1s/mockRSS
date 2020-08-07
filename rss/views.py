@@ -1,3 +1,6 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+# Controller for displaying login page.
+def login(request):
+    return render(request, 'rss/login.html', {})

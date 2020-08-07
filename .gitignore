@@ -1,0 +1,7 @@
+rachelsrss/rachelsrss.code-workspace
+__pycache__/
+rachelsrss/__pycache__/
+rss/__pycache__/
+rachelsrss/__pycache__/settings.cpython-38.pyc
+rachelsrss/__pycache__/urls.cpython-38.pyc
+rss/__pycache__/models.cpython-38.pyc
