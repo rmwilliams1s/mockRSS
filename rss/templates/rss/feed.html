@@ -11,13 +11,16 @@
             <button>Search</button>
         </div>
         <div id='feed'>
-            <!--Just a template for now, will autopopulate this later-->
+            {% for feed in feeds %}
             <div id='post'>
-                <h2 id='title'><a href=''></a></h2>
-                <p id='date'></p>
-                <img id='image'>
-                <p id='desc'></p>
+                <h2 id='title'><a href=''>{{ feed.title }}</a></h2>
+                <p id='date'>{{ feed.date }}</p>
+                {% if feed.image %}
+                <img id='image' src='{{ feed.image }}'>
+                {% endif %}
+                <p id='desc'>{{ feed.description }}</p>
             </div>
+            {% endfor %}
         </div>
     </body>
 </html>

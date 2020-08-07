@@ -1,6 +1,10 @@
 from django.shortcuts import render
+from django.utils import timezone
+from .models import User
+from .models import RSS
 
 
-# Controller for displaying login page.
+# Controller for displaying main page.
 def login(request):
-    return render(request, 'rss/login.html', {})
+    feeds = RSS.objects.filter(date__lte=timezone.now()).order_by('date')
+    return render(request, 'rss/feed.html', {'feeds': feeds})

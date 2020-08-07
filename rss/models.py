@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 
 class User(models.Model):
@@ -11,8 +12,8 @@ class User(models.Model):
 
 class RSS(models.Model):
     url = models.URLField()
-    # title = models.CharField(max_length=100)
-    # date = models.DateTimeField()
-    # description = models.CharField(max_length=500)
-    # image = models.URLField(blank=True)
+    title = models.CharField(max_length=100, default="N/A")
+    date = models.DateTimeField(default=timezone.now())
+    description = models.CharField(max_length=500, default="N/A")
+    image = models.URLField(blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
