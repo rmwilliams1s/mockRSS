@@ -5,11 +5,10 @@
     <body>
         <h3>Mock RSS Reader</h3>
         <div id='login'>
-            <p>Username:</p>
-            <input type="text">
-            <p>Password:</p>
-            <input type="text">
-            <button>Submit</button>
+            <form method="POST" class="post-form" >{% csrf_token %}
+                {{ form.as_p }}
+            </form>
+            <a class='btn btn-default'>Submit</a>
         </div>
         <div id='register'>
             <p>or <a href='/register.html'>Create an Account</a></p>

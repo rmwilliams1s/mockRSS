@@ -7,24 +7,28 @@
         <link rel="stylesheet" href="{% static 'css/rss.css' %}">
     </head>
     <body>
-        <div id='header'>
+        <div class='header'>
             <h3>Mock RSS Reader</h3>
             <p>Welcome, user</p>
             <p>Add a new feed: </p>
             <input type='text'>
             <button>Search</button>
         </div>
-        <div id='feed'>
-            {% for feed in feeds %}
-            <div id='post'>
-                <h2 id='title'><a href=''>{{ feed.title }}</a></h2>
-                <p id='date'>{{ feed.date }}</p>
-                {% if feed.image %}
-                <img id='image' src='{{ feed.image }}'>
-                {% endif %}
-                <p id='desc'>{{ feed.description }}</p>
+        <div class='content container'>
+            <div class='row'>
+                <div class='col-md-8'>
+                    {% for feed in feeds %}
+                    <div class='post'>
+                        <h2 id='title'><a href=''>{{ feed.title }}</a></h2>
+                        <p id='date'>{{ feed.date }}</p>
+                        {% if feed.image %}
+                        <img id='image' src='{{ feed.image }}'>
+                        {% endif %}
+                        <p id='desc'>{{ feed.description }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
             </div>
-            {% endfor %}
         </div>
     </body>
 </html>
