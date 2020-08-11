@@ -6,8 +6,8 @@
             <h3>Mock RSS Reader</h3>
             <p>Welcome, user</p>
             <p>Add a new feed: </p>
-            <input type='text'>
-            <a>Search</a>
+            <input type='text' class='form-control' name='url'>
+            <button class="btn btn-default" type="submit">Search</button>
             <a class="btn btn-default" href="{% url 'login' %}">Logout</a>
         </div>
         <div class='content container'>
