@@ -1,20 +1,17 @@
-<html>
-    <head>
-        <title>RSS Reader</title>
-    </head>
+{% extends 'rss/base.html' %}
+{% block content %}
     <body>
         <h3>Sign Up</h3>
         <div id='login'>
-            <p>Username:</p>
-            <input type="text">
-            <p>Password:</p>
-            <input type="text">
+            <form method="POST" class="post-form" >{% csrf_token %}
+                {{ form.as_p }}
+            </form>
             <p>Type in any RSS feeds you're interested in here:</p>
             <input type="text">
-            <button>Submit</button>
+            <a class="btn btn-default" href="{% url 'feed' %}">Create your account</a>
         </div>
         <div id='register'>
-            <p>or <a href='/login.html'>Sign In</a></p>
+            <p>or <a href="{% url 'login' %}">Sign In</a></p>
         </div>
     </body>
-</html>
+{% endblock %}

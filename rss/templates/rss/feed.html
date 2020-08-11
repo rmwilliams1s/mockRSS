@@ -1,18 +1,14 @@
-{% load static %}
-<html>
-    <head>
-        <title>RSS Reader</title>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="{% static 'css/rss.css' %}">
-    </head>
+    {% extends 'rss/base.html' %}
+    
+    {% block content %}
     <body>
         <div class='header'>
             <h3>Mock RSS Reader</h3>
             <p>Welcome, user</p>
             <p>Add a new feed: </p>
             <input type='text'>
-            <button>Search</button>
+            <a>Search</a>
+            <a class="btn btn-default" href="{% url 'login' %}">Logout</a>
         </div>
         <div class='content container'>
             <div class='row'>
@@ -31,4 +27,4 @@
             </div>
         </div>
     </body>
-</html>
+    {% endblock %}

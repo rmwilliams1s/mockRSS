@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django import forms
 
 
 class User(models.Model):
@@ -8,6 +9,13 @@ class User(models.Model):
 
     def __str__(self):
         return self.username
+
+
+# Form wrapper around User model.
+class UserForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ('username', 'password',)
 
 
 class RSS(models.Model):
