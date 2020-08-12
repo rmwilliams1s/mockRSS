@@ -1,6 +1,7 @@
 from django.test import TestCase
 from django.urls import reverse
 
+
 class FeedViewTests(TestCase):
 
     def test_no_feed(self):

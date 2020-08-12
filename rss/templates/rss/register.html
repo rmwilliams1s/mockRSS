@@ -3,12 +3,13 @@
     <body>
         <h3>Sign Up</h3>
         <div id='login'>
-            <form method="POST" class="post-form" >{% csrf_token %}
-                {{ form.as_p }}
+            <form method="GET" class="post-form" >
+                <p>Username:</p>
+                <input type='text' class='form-control' name='username' required>
+                <p>Password:</p>
+                <input type='text' class='form-control' name='password' required>
+                <a class="btn btn-default" type='submit' href="{% url 'feed' %}">Create your account</a>
             </form>
-            <p>Type in any RSS feeds you're interested in here:</p>
-            <input type="text">
-            <a class="btn btn-default" href="{% url 'feed' %}">Create your account</a>
         </div>
         <div id='register'>
             <p>or <a href="{% url 'login' %}">Sign In</a></p>

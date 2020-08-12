@@ -15,14 +15,14 @@
         <div class='content container'>
             <div class='row'>
                 <div class='col-md-8'>
-                    {% for item in feed %}
+                    {% for feed in feeds %}
                     <div class='post'>
-                        <h2 id='title'><a href='{{ item.link }}'>{{ item.title }}</a></h2>
-                        <p id='date'>{{ item.date }}</p>
-                        {% if item.image %}
+                        <h2 id='title'><a href='{{ feed.link }}'>{{ feed.title }}</a></h2>
+                        <p id='date'>{{ feed.date }}</p>
+                        {% if feed.image %}
                         <img id='image' src='{{ feed.image }}'>
                         {% endif %}
-                        <p id='desc'>{{ item.description }}</p>
+                        <p id='desc'>{{ feed.description }}</p>
                     </div>
                     {% endfor %}
                 </div>

@@ -10,14 +10,6 @@ class User(models.Model):
     def __str__(self):
         return self.username
 
-
-# Form wrapper around User model.
-class UserForm(forms.ModelForm):
-    class Meta:
-        model = User
-        fields = ('username', 'password',)
-
-
 class RSS(models.Model):
     url = models.URLField()
     title = models.CharField(max_length=100, default="N/A")
