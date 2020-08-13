@@ -1,19 +1,18 @@
 from django.shortcuts import render, redirect
 from django.utils import timezone
 from django.http import HttpResponse
+from django.contrib.auth.forms import UserCreationForm
+from django.urls import reverse_lazy
+from django.views import generic
 from django.contrib.auth.models import User
 from .models import RSS
 import feedparser
 
-def register(request):
-    if request.GET.get("username") and request.GET.get("password"):
-        name = request.GET['username']
-        pwd = request.GET['password']
-        user = User.objects.create_user(username=name, password=pwd)
-        user.save()
-        return redirect('rss/feed.html')
-    else:
-        return render(request, 'rss/register.html')
+
+class Register(generic.CreateView):
+    form_class = UserCreationForm
+    success_url = reverse_lazy('login')
+    template_name = 'register.html'
 
 
 # Controller for displaying main page.
@@ -25,7 +24,7 @@ def render_feed(request):
         date = feed['published'] if 'published' in feed else timezone.now()
         desc = feed['description'] if 'description' in feed else ''
         image = feed['image']['link'] if 'image' in feed else ''
-        #user = request.user.id
+        user = request.user.id
         rss = RSS.objects.create(
             url=url, title=title, date=date, description=desc, image=image, user=User.id)
     else:

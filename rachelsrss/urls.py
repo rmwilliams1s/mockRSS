@@ -4,6 +4,7 @@ from django.views.generic.base import TemplateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('rachelsrss/', include('rss.urls')),
     path('rachelsrss/', include('django.contrib.auth.urls')),
     path('', TemplateView.as_view(template_name='feed.html'), name='feed'),
 ]

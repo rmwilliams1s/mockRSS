@@ -4,5 +4,5 @@ from .models import User
 
 urlpatterns = [
     path('', views.render_feed, name='feed'),
-    path('register', views.register, name='register'),
+    path('register/', views.Register.as_view(), name='register'),
 ]
