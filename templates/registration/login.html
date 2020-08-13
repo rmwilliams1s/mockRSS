@@ -3,12 +3,11 @@
     <body>
         <h3>Mock RSS Reader</h3>
         <div id='login'>
-            <form method="post">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <button type="submit">Login</button>
-            </form>
-            <a class="btn btn-default" href="{% url 'feed' %}">Old Login</a>
+          <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class='btn btn-default' type="submit">Login</button>
+          </form>
         </div>
         <div id='register'>
             <p>or <a href="{% url 'register' %}">Create an Account</a></p>
