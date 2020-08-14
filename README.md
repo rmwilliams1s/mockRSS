@@ -28,6 +28,7 @@ Lacks live updating, and the same feed can be added multiple times.
 
 ## Roadmap
 
+Add unit tests
 Implement ability to remove posts from your feed.
 Add indication of news source with each post.
 Add a "return to top" fixed button.

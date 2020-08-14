@@ -48,6 +48,8 @@ def render_feed(request):
             else:
                 desc = ''
 
+            image = ''
+
             if 'image' in post:
                 image = post['image']['link']  
             elif 'media_content' in post:
@@ -57,8 +59,7 @@ def render_feed(request):
                 for link in post['links']:
                     if 'image' in link['type']:
                         image = link['href'] 
-            else:
-                image = ''
+
             user = request.user
             rss = RSS.objects.create(
                 url=link, title=title, date=date, description=desc, image=image, user=user)
