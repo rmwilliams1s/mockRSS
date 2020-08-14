@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
     <body>
-        <h3>Mock RSS Reader</h3>
-        <div id='login'>
+        <div id='login-main'>
+          <h2 class='display-3'>Mock RSS Reader</h2>
           <form method="post">
             {% csrf_token %}
             {{ form.as_p }}
-            <button class='btn btn-default' type="submit">Login</button>
+            <button class='btn btn-default btn-login' type="submit">Login</button>
           </form>
         </div>
         <div id='register'>

@@ -1,19 +1,138 @@
-h3 {
+body {
+    background-color: #D4A27F;
+}
+
+p {
+    color: #243324;
+}
+
+#login-main {
+    width: 350px;
+    height: 210px;
+    margin: 45px auto;
+    background-color: #BF710A;
+    border-radius: 10px;
+    padding: 5px 20px;
+}
+
+#register-main {
+    width: 350px;
+    height: 460px;
+    margin: 45px auto;
+    background-color: #BF710A;
+    border-radius: 10px;
+    padding: 5px 20px;
+}
+
+#register {
+    width: 150px;
+    height: 10px;
+    margin: auto;
+}
+
+#login {
+    width: 60px;
+    height: 10px;
+    margin: auto;  
+}
+
+#register > p > a, 
+#login > p > a{
+    color: #823600;
+}
+
+[id^=id_], .form-control {
+    background-color: #DBCEC5;
+    border-radius: 10px;
+}
+
+#id_password, #id_password1 {
+    margin-left: 3px;
+}
+
+#id_choice {
+    margin-left: 22px;
+    font-weight: 300;
+}
+
+#id_choice, #id_keyword {
+    width: 70%; 
+}
+
+#title > a {
+    color: #823600;
+}
+
+#image {
+    width: 250px;
+    height: 250px;
+    margin-right: 50px;
+}
+
+#btn-logout {
+    margin-left: 90%;
+}
+
+h1.display-4 {
     color: #FF8833;
 }
 
-body {
-    padding-left: 15px;
+.display-3 {
+    color: #1F4D1F;
 }
 
-.header {
+.flex {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: baseline;
+    max-height: 70000px;
+    padding-left: 4%;
+}
+
+.container {
+    float: left;
+    width: 50%;
+}
+
+.sort {
+ margin-top: 12%;
+}
+
+.helptext, li {
+    color: #D4A27F;
+}
+
+.btn {
+   border: 0 none;
+   color: white;
+   background: #1F4D1F;
+   text-shadow: none;
+}
+
+.btn-lg {
+    margin-top: 25px;
+}
+
+.jumbotron {
     background-color: #C25100;
     margin-top: 0;
     padding: 20px 20px 20px 40px;
+    width: 101%;
+    height: 60%;
+}
+
+.form-control {
+    width: 90%;
 }
 
 .post {
-    margin-bottom: 70px;
+    margin: 0 2em 2em 0;
+    background-color: #BF710A;
+    padding: 2% 5% 5% 5%;
+    border-radius: 10px;
+    width: 350px;
+    font-size: 1.1em;
 }
 
 .post h2 a, .post h2 a:visited {

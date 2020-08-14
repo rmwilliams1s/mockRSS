@@ -30,6 +30,7 @@ Lacks live updating, and the same feed can be added multiple times.
 
 Implement ability to remove posts from your feed.
 Add indication of news source with each post.
+Add a "return to top" fixed button.
 Improve front-end design.
 Hide "Keyword" form option when "Description containing:" has not been chosen.
 Expand feed parsing to catch all variations in date structure, image URL structure, etc.

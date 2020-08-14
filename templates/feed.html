@@ -2,17 +2,19 @@
     
     {% block content %}
     <body>
-        <div class='header'>
-            <a class="btn btn-default" href="{% url 'login' %}">Logout</a>
-            <h3>Mock RSS Reader</h3>
-            {% if user.is_authenticated %}
-            <p>Welcome, {{ user.username }}</p>
-            <form action='' method="GET">
-                <p>Add a new feed: </p>
-                <input type='text' class='form-control' name='url'>
-                <button class="btn btn-primary" type="submit">Search</button>
-            </form>
-            <div class='sort_section'>
+        <div class='jumbotron'>
+            <a class="btn btn-default btn-sm" id='btn-logout' href="{% url 'login' %}">Logout</a>
+            <div class='container'>
+                <h1 class='display-4'>Mock RSS Reader</h1>
+                {% if user.is_authenticated %}
+                <p class='lead'>Welcome, {{ user.username }}</p>
+                <form action='' method="GET">
+                    <p><strong>Add a new feed: </strong></p>
+                    <input type='text' class='form-control' name='url'>
+                    <button class="btn btn-primary btn-lg" type="submit">Search</button>
+                </form>
+            </div>
+            <div class='sort container'>
                 <form method="POST">
                     {% csrf_token %}
                     {{ sort_form.as_p }}
@@ -20,21 +22,17 @@
                 </form>
             </div>
         </div>
-        <div class='content container'>
-            <div class='row'>
-                <div class='col-md-8'>
-                    {% for feed in feeds %}
-                    <div class='post'>
-                        <h2 id='title'><a href='{{ feed.url }}'>{{ feed.title }}</a></h2>
-                        <p id='date'>{{ feed.date }}</p>
-                        {% if feed.image %}
-                        <img id='image' src='{{ feed.image }}'>
-                        {% endif %}
-                        <p id='desc'>{{ feed.description }}</p>
-                    </div>
-                    {% endfor %}
-                </div>
+        <div class='flex col-md-4'>
+            {% for feed in feeds %}
+            <div class='post'>
+                <h2 id='title'><a href='{{ feed.url }}'>{{ feed.title }}</a></h2>
+                <p id='date'>{{ feed.date }}</p>
+                {% if feed.image %}
+                <img id='image' src='{{ feed.image }}'>
+                {% endif %}
+                <p id='desc'>{{ feed.description }}</p>
             </div>
+            {% endfor %}
         </div>
         {% else %}
         <p>You are not logged in.</p>
