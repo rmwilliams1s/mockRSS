@@ -14,6 +14,7 @@ from pathlib import Path
 import json
 import os
 from django.core.exceptions import ImproperlyConfigured
+from django.utils.crypto import get_random_string
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
@@ -37,9 +38,11 @@ try:
 
     SECRET_KEY = get_secret('SECRET_KEY')
 except FileNotFoundError:
-    SETTINGS_DIR = os.path.abspath(os.path.dirname(__file__))
-    generate_secret_key(os.path.join(SETTINGS_DIR, 'secret_key.py'))
-    from .secret_key import SECRET_KEY
+    def get_random_secret_key():
+        chars = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)'
+        return get_random_string(50, chars)
+
+    SECRET_KEY = get_random_secret_key()
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
