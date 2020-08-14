@@ -19,30 +19,40 @@ class Register(generic.CreateView):
 def render_feed(request):
     if request.GET.get("url"):
         url = request.GET["url"]
-        feed = feedparser.parse(url)['feed']
-        print(feed)
-        title = feed['title'] if 'title' in feed else ''
-        link = feed['link'] if 'link' in feed else ''
+        feed = feedparser.parse(url)
+        for post in feed.entries:
+            title = post['title'] if 'title' in post else ''
+            link = post['link'] if 'link' in post else ''
 
-        if 'published' in feed:
-            date = feed['published']
-        elif 'updated' in feed:
-            date = feed['updated']
-        else: 
-            date = datetime.MINYEAR
+            if 'published' in post:
+                date = post['published']
+            elif 'updated' in post:
+                date = post['updated']
+            else: 
+                date = datetime.MINYEAR
 
-        if 'description' in feed:
-            desc = feed['description']
-        elif 'subtitle' in feed:
-            desc = feed['subtitle']
-        else:
-            desc = ''
-            
-        image = feed['image']['link'] if 'image' in feed else ''
-        user = request.user
-        rss = RSS.objects.create(
-            url=link, title=title, date=date, description=desc, image=image, user=user)
-        rss.save()
+            if 'description' in post:
+                desc = post['description']
+            elif 'subtitle' in post:
+                desc = post['subtitle']
+            else:
+                desc = ''
+
+            if 'image' in post:
+                image = post['image']['link']  
+            elif 'media_content' in post:
+                # Just grab first image from resources
+                image = post['media_content'][0]['url']
+            elif 'links' in post:
+                for link in post['links']:
+                    if 'image' in link['type']:
+                        image = link['href'] 
+            else: 
+                image = ''
+            user = request.user
+            rss = RSS.objects.create(
+                url=link, title=title, date=date, description=desc, image=image, user=user)
+            rss.save()
     else:
         feed = None
     feeds = RSS.objects.filter(user=request.user)
