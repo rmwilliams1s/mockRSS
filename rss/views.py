@@ -40,7 +40,6 @@ def render_feed(request):
                     else:
                         continue
                 
-
             if 'description' in post:
                 desc = post['description']
             elif 'subtitle' in post:
@@ -53,8 +52,13 @@ def render_feed(request):
             if 'image' in post:
                 image = post['image']['link']  
             elif 'media_content' in post:
-                # Just grab first image from resources
-                image = post['media_content'][0]['url']
+                if len(post['media_content']) > 0 and 'url' in post['media_content'][0]:
+                    # Just grab first image from resources
+                    image = post['media_content'][0]['url']
+            elif 'media_thumbnail' in post:
+                if len(post['media_thumbnail']) > 0 and 'url' in post['media_thumbnail'][0]:
+                    # Just grab first image from thumbnails
+                    image = post['media_thumbnail'][0]['url']
             elif 'links' in post:
                 for link in post['links']:
                     if 'image' in link['type']:

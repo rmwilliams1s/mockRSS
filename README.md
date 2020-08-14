@@ -20,7 +20,7 @@ Make sure to run Install Certificates.command in your Python folder to solve thi
 
 ## Known Bugs
 
-Not all images display correctly, some titles are not stored in DB properly.
+Not all images display correctly, some posts have default value date rather than real date, some titles and descriptions are not stored in DB properly.
 
 Going to http://127.0.0.1:8000/ before logging in will cause an error.
 
