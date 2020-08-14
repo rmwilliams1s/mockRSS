@@ -12,6 +12,13 @@
                 <input type='text' class='form-control' name='url'>
                 <button class="btn btn-primary" type="submit">Search</button>
             </form>
+            <div class='sort_section'>
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ sort_form.as_p }}
+                    <button class="btn btn-primary" type="submit">Sort</button>
+                </form>
+            </div>
         </div>
         <div class='content container'>
             <div class='row'>

@@ -5,5 +5,3 @@ rss/__pycache__/
 rachelsrss/__pycache__/settings.cpython-38.pyc
 rachelsrss/__pycache__/urls.cpython-38.pyc
 rss/__pycache__/models.cpython-38.pyc
-rss/migrations/0002_auto_20200807_2027.py
-rss/migrations/0004_auto_20200812_0336.py
