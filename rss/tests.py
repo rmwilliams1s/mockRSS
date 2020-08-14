@@ -11,7 +11,7 @@ class FeedViewTests(TestCase):
         self.assertEqual(response.context['feed'], None)
 
     def test_user_submit(self):
-        response = self.client.get(reverse("feed") + "?url=https://www.djangoproject.com/rss/weblog/")
+        response = self.client.get(reverse("feed") + "?url=http://feeds.nytimes.com/nyt/rss/HomePage")
 
         self.assertEqual(response.status_code, 200)
         self.assertNotEqual(response.context['feed'], None)
